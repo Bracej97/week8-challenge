@@ -1,0 +1,37 @@
+{% extends 'ecommerce_app/base.html' %}
+
+{% block navbar %}
+    <li class="breadcrumb-item"><a href="{% url 'order_list' %}">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">All Posts</li>
+{% endblock %}
+
+
+
+{% block content %}
+<!-- {% for order in orders %}
+    <article class="order">
+        <h2 data-bs-toggle="tooltip" title="click to know more"><a href="{% url 'order_detail' id=order.pk %}">{{ order.title }}</a></h2>
+    </article>
+{% endfor %} -->
+<div class="container">
+    <div class="row">
+        {% for order in orders %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title" data-bs-toggle="tooltip" title="Click to know more">
+                            {{ order.title }}
+                        </h5>
+                        <!-- <a href="{% url 'order_edit' id=order.pk %}" class="btn btn-primary">Edit</a> -->
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+<!-- <h2><a href="#">{{ order.title }}</a></h2>
+<p><a href="#">click to know more</a></p> -->
+<!-- <h2><a href="{% url 'order_detail' id=order.pk %}">{{ order.title }}</a></h2>
+        <p><a href="{% url 'order_detail' id=order.pk %}">click to know more</a></p> -->
