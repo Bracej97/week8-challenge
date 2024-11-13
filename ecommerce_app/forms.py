@@ -5,7 +5,7 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('customer_name', 'product_name', 'quantity' 'order_date')
+        fields = ('customer_name', 'product_name', 'quantity', 'order_date')
 
         labels = {
             'customer_name': 'Name of the customer',
@@ -33,9 +33,6 @@ class OrderForm(forms.ModelForm):
 
     def clean_quantity(self):
         quantity = self.cleaned_data.get('quantity')
-
-        # Remove leading/trailing spaces
-        quantity = quantity.strip()
 
         return quantity
 

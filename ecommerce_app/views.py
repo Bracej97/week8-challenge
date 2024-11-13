@@ -14,11 +14,11 @@ def order_list(request):
     return render(request, 'ecommerce_app/order_list.html', {'orders':orders})
 
 def order_create(request):
-    if request.method('POST'):
-        form = OrderForm(request.post)
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('orders_list')
+            return redirect('order_list')
 
     else:
         form = OrderForm()
@@ -32,7 +32,7 @@ def order_edit(request, id):
             order.save()
 
             # messages.success(request, "Order successfully edited!")
-            return redirect('order_list', id=order.pk)
+            return redirect('order_list')
     else:
         form = OrderForm(instance=order)
     return render(request, 'ecommerce_app/order_form.html', {'form': form, 'order':order})
