@@ -1,0 +1,23 @@
+{% extends 'ecommerce_app/base.html' %}
+
+{% block title %}Delete Order{% endblock %}
+
+{% block content %}
+<h1>Delete Order</h1>
+<form method="post">
+    {% csrf_token %}
+    <h3>Are you sure you want to delete this order?</h3>
+    <div class="card">
+        <div class="card-body">
+            <p>
+                Order from: {{ order.customer_name }}<br>
+                Product: {{ order.product_name }}<br>
+                Quantity: {{ order.quantity }}<br>
+                Ordered on: {{ order.order_date}}
+            </p>
+            <button class="btn btn-primary" type="submit">Delete</button>
+            </form>
+            <a href="{% url 'order_list' %}" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+{% endblock %}

@@ -18,7 +18,13 @@
                         <h5 class="card-title" data-bs-toggle="tooltip" title="Click to edit">
                             {{ order.customer_name }}
                         </h5>
+                        <p>
+                            Product: {{ order.product_name }}<br>
+                            Quantity: {{ order.quantity }}<br>
+                            Ordered on: {{ order.order_date}}
+                        </p>
                         <a href="{% url 'order_edit' order.pk %}" class="btn btn-primary">Edit</a>
+                        <a href="{% url 'order_delete' order.pk %}" class="btn btn-primary">Delete</a>
                     </div>
                 </div>
             </div>
