@@ -2,16 +2,21 @@ from django import forms
 from django.core.exceptions import ValidationError
 from .models import Order
 
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
         fields = ('customer_name', 'product_name', 'quantity', 'order_date')
+        widgets = {
+            "order_date": DateInput()
+        }
 
         labels = {
-            'customer_name': 'Name of the customer',
-            'product_name':  'Product to order',
-            'quantity': 'How many to order',
-            'order_date': 'when ordered'
+            'customer_name': 'Customer name',
+            'product_name':  'Product name',
+            'quantity': 'Quantity',
         }
 
         # Custom validation for the 'title' field

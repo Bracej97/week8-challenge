@@ -15,9 +15,9 @@
                 Quantity: {{ order.quantity }}<br>
                 Ordered on: {{ order.order_date}}
             </p>
-            <button class="btn btn-primary" type="submit">Delete</button>
+            <button class="btn btn-danger" type="submit">Delete</button>
             </form>
-            <a href="{% url 'order_list' %}" class="btn btn-primary">Cancel</a>
+            <a href="{% url 'order_list' %}" class="btn btn-secondary">Cancel</a>
         </div>
     </div>
 {% endblock %}

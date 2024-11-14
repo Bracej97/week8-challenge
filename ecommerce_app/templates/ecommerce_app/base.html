@@ -8,13 +8,6 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext">
     </head>
     <body>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-                {% block navbar %}
-                    <li class="breadcrumb-item active" aria-current="page">Current Page</li>
-                {% endblock %}
-            </ol>
-        </nav>
         <header class="page-header">
             <div class="container">
                 <h1><a href="/">Skills BootCamp Ecommerce Site</a></h1>
@@ -24,10 +17,6 @@
             <aside class="sidebar">
                 <h2>Quick Links</h2>
                 <ul>
-                    {% block loginlinks %}
-                    <li class="category-link"><a href="#">Login</a></li>
-                    <li class="category-link"><a href="#">Logout</a></li>
-                    {% endblock %}
                     <li class="category-link"><a href="{% url 'admin:index' %}">Admin</a></li>
                 </ul>
                 {% block neworder %}
